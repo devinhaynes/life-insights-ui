@@ -1,20 +1,32 @@
 <script lang="ts">
-
     import {auth} from '../stores/auth';
+    import {signIn, signOut} from '../auth';
 
     // icons
     import profileIcon from '../assets/profile.svg';
+
+    let dropdownActive = false;
 </script>
 
 <div class="navbar">
-        <div class="profile">
+        <button on:click={() => dropdownActive = !dropdownActive} class="profile">
             {#if $auth && $auth.photoURL}
                 <img class="profile__img" src={$auth.photoURL} alt="User">
             {:else}
                 <img class="profile__img" src={profileIcon} alt="Default User">
             {/if}
+        </button>
+        <div data-active={dropdownActive} class="dropdown">
+            <ul>
+                <li>
+                    {#if $auth}
+                        <button on:click={signOut}>Sign Out</button>
+                    {:else}
+                        <button on:click={signIn}>Sign in</button>
+                    {/if}
+                </li>
+            </ul>
         </div>
-        
 </div>
 
 <style>
@@ -29,6 +41,8 @@
     .profile {
         max-height: 50px;
         aspect-ratio: 1;
+        background-color: unset;
+        padding: unset;
         
     }
 
@@ -37,7 +51,11 @@
         border-radius: 50%;
     }
 
-    .greeting {
-        font-size: 2.5rem;
+    [data-active="false"] {
+        display: none;
+    }
+
+    [data-active="true"] {
+        display: block;
     }
 </style>

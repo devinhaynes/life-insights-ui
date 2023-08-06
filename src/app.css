@@ -26,6 +26,11 @@
   --link-light: #747bff;
   --dark: #213547;
   --white: #fff;
+
+  /* Utility custom props */
+  --max-width: 1200px;
+  --border-radius: 1rem;
+  --base-card-size: 150px;
 }
 
 *,
@@ -74,6 +79,10 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+ul {
+  list-style-type: none;
 }
 
 @media (prefers-color-scheme: light) {

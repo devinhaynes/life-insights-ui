@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { Router, Link, Route } from "svelte-routing";
-    import Auth from './lib/Auth.svelte';
+    import { Router, Route } from "svelte-routing";
     import Navbar from './lib/Navbar.svelte';
     import Dashboard from "./lib/Dashboard.svelte";
+    import Landing from "./lib/Landing.svelte";
 
     export let url = "/";
 </script>
@@ -11,7 +11,7 @@
    <Navbar />
     <main>
         <Route path="/dashboard"><Dashboard /></Route>
-        <Route path="/"><Auth /></Route>
+        <Route path="/"><Landing /></Route>
     </main> 
 </Router>
 

@@ -1,0 +1,15 @@
+{
+  "config": {
+    "type": "bar",
+    "data": {
+      "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      "datasets": [
+        {
+          "label": "Bar Graph",
+          "borderWidth": 1,
+          "data": [12, 19, 3, 5, 2, 3]
+        }
+      ]
+    }
+  }
+}
