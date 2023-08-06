@@ -7,6 +7,7 @@
     import { config as secondaryTwoConfig } from '../data/secondaryTwo.json';
 
     import { onMount } from "svelte";
+  import Sidebar from './Sidebar.svelte';
 
     
 	let featured;
@@ -28,10 +29,12 @@
 </script>
 
 <div id="Dashboard">
-    <div class="top">
+    <Sidebar />
+    <div class="content">
+            <div class="top">
         <div class="greeting">
             {#if $auth}
-                <h1>Hey {$auth.displayName}</h1>
+                <h1>Dashboard</h1>
             {/if}
         </div>
     </div>
@@ -48,29 +51,30 @@
             <canvas bind:this={secondaryTwo} ></canvas>
         </div>
     </div>
-    <div class="apps">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
     </div>
 </div>
 
 <style>
     #Dashboard {
-        max-width: var(--max-width);
-        margin-inline: 1rem;
         display: flex;
-        flex-direction: column;
         gap: 2rem;
     }
 
+    .content {
+        padding-bottom: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+    }
+
     .greeting {
-        margin-block: 3rem;
+        margin-block: 2rem;
+
+        & h1 {
+            text-align: center;
+        }
     }
 
     .featured {
@@ -80,36 +84,23 @@
     .secondary {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
         gap: 2rem;
         min-height: calc(var(--base-card-size) * 2);
     }
 
-    /* .card {
-        width: 100%;
-        height: 100%;
+    .secondary > .card {
+            /* width: clamp(300px, 30%, 800px); */
+        }
+
+    .card {
         min-width: var(--base-card-size);
         min-height: var(--base-card-size);
-        background-color: red;
         border-radius: var(--border-radius);
         padding: 1rem;
-
-        & img {
-            /* width: 100%;
-            max-height: 100%; 
-            object-fit: contain;
-        }
-    } */
-
-    .apps {
+        box-shadow: var(--box-shadow);
         display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
         justify-content: center;
-    }
-
-    @media (min-width: 1200px) {
-        #Dashboard {
-            margin-inline: auto;
-        }
+        align-items: center;
     }
 </style>

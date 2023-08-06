@@ -14,12 +14,3 @@
         <Route path="/"><Landing /></Route>
     </main> 
 </Router>
-
-
-<style>
-    main {
-        display: flex;
-        place-content: center;
-        flex-grow: 1;
-    }
-</style>

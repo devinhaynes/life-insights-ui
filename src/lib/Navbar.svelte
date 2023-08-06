@@ -36,6 +36,7 @@
         gap: 1rem;
         align-items: center;
         padding: .5rem 1rem;
+        box-shadow: 2px 0 4px rgba(0, 0, 0, .125);
     }
 
     .profile {

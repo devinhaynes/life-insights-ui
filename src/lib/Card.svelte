@@ -2,29 +2,31 @@
     export let cols = 1;
     export let rows = 1;
 
-    import icon from '../assets/svelte.svg';
+    // import icon from '../assets/svelte.svg';
+    export let icon;
 </script>
 
 <div class="card" data-cols={cols} data-rows={rows}>
-    <img src={icon} alt="icon">
+    <!-- <img src={icon} alt="icon"> -->
+    <i class={`fa-solid ${icon}`}></i>
 </div>
 
 <style>
     .card {
-        box-shadow: 0 0 4px 2px rgba(0, 0, 0, .5);
+        box-shadow: var(--box-shadow);
         background-color: white;
-        width: 150px;
+        padding: 1rem;
         aspect-ratio: 1;
         display: grid;
         place-content: center;
         border-radius: 1rem;
-        grid-column-start: 1;
-        grid-row-start: 1;
-        grid-column-end: span attr(data-cols);
-        grid-row-end: span attr(data-rows);
 
         & img {
             max-height: 100px;
+        }
+
+        & i {
+            font-size: 2rem;
         }
     }
 </style>
