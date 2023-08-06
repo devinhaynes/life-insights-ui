@@ -17,5 +17,6 @@
         gap: 2rem;
         padding: 2rem 1rem;
         box-shadow: 0 2px 4px rgba(0, 0, 0, .125);
+        background-color: white;
     }
 </style>

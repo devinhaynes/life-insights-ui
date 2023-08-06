@@ -79,6 +79,10 @@
 
     .featured {
         min-height: calc(var(--base-card-size) * 2);
+
+        & canvas {
+            width: 1000px;
+        }
     }
 
     .secondary {
@@ -88,10 +92,6 @@
         gap: 2rem;
         min-height: calc(var(--base-card-size) * 2);
     }
-
-    .secondary > .card {
-            /* width: clamp(300px, 30%, 800px); */
-        }
 
     .card {
         min-width: var(--base-card-size);
