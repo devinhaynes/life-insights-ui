@@ -26,6 +26,9 @@
   --link-light: #747bff;
   --dark: #213547;
   --white: #fff;
+  --light-gray: #a9a9a9;
+  --green: hsl(118, 48%, 44%);
+  --red: hsl(0 65% 42%);
 
   /* Utility custom props */
   --max-width: 1200px;

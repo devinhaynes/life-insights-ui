@@ -7,7 +7,8 @@
     import { config as secondaryTwoConfig } from '../data/secondaryTwo.json';
 
     import { onMount } from "svelte";
-  import Sidebar from './Sidebar.svelte';
+    import Sidebar from './Sidebar.svelte';
+    import { navigate } from 'svelte-routing';
 
     
 	let featured;
@@ -15,6 +16,10 @@
     let secondaryTwo;
 
 	onMount(async () => {
+        if(!$auth) {
+            navigate("/");
+        }
+
         const featuredCtx = featured.getContext('2d');
         const secondaryOneCtx = secondaryOne.getContext('2d');
         const secondaryTwoCtx = secondaryTwo.getContext('2d');
@@ -23,7 +28,7 @@
         // @ts-ignore
         new Chart(secondaryOneCtx, secondaryOneConfig);
         // @ts-ignore
-        new Chart(secondaryTwoCtx, secondaryTwoConfig)
+        new Chart(secondaryTwoCtx, secondaryTwoConfig)        
 	});
 
 </script>
@@ -31,26 +36,33 @@
 <div id="Dashboard">
     <Sidebar />
     <div class="content">
-            <div class="top">
-        <div class="greeting">
-            {#if $auth}
-                <h1>Dashboard</h1>
-            {/if}
+        <div class="top">
+            <div class="greeting">
+                {#if $auth}
+                    <h1>Dashboard</h1>
+                {/if}
+            </div>
         </div>
-    </div>
-    <div class="featured">
-        <div class="card">
-            <canvas bind:this={featured} ></canvas>
+        <div class="data">
+            <div class="card featured">
+                <canvas bind:this={featured} ></canvas>
+            </div>
+            <div class="card half">
+                <canvas bind:this={secondaryOne} ></canvas>
+            </div>
+            <div class="card half">
+                <canvas bind:this={secondaryTwo} ></canvas>
+            </div>
+            <div class="card insights">
+                <ul>
+                    <li class="positive">+4 miles running</li>
+                    <li class="negative">+8 hours watching TV</li>
+                    <li class="positive">All tasks completed</li>
+                    <li class="positive">+3 hours family time</li>
+                    <li class="negative">Over-budget: Food</li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="secondary">
-        <div class="card">
-            <canvas bind:this={secondaryOne} ></canvas>
-        </div>
-        <div class="card">
-            <canvas bind:this={secondaryTwo} ></canvas>
-        </div>
-    </div>
     </div>
 </div>
 
@@ -66,7 +78,6 @@
         flex-direction: column;
         align-items: center;
         gap: 2rem;
-        width: 100%;
     }
 
     .greeting {
@@ -77,20 +88,27 @@
         }
     }
 
-    .featured {
-        min-height: calc(var(--base-card-size) * 2);
-
-        & canvas {
-            width: 1000px;
-        }
+    .data {
+        display: grid;
+        grid-template-areas: 
+        "featured featured insights"
+        "one two insights";
+        grid-gap: 1rem;
     }
 
-    .secondary {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 2rem;
-        min-height: calc(var(--base-card-size) * 2);
+    .featured {
+        /* grid-column-start: span 12; */
+        grid-area: featured;
+    }
+
+    .half:nth-child(1) {
+        /* grid-column-start: span 6; */
+        grid-area: one
+    }
+
+    .half:nth-child(2) {
+        /* grid-column-start: span 6; */
+        grid-area: two
     }
 
     .card {
@@ -102,5 +120,24 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .insights {
+        grid-area: insights;
+        align-self: flex-start;
+        padding-block: 3rem;
+        
+        & li {
+            padding: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        } 
+    }
+
+    .positive {
+        color: var(--green);
+    }
+
+    .negative {
+        color: var(--red);
     }
 </style>

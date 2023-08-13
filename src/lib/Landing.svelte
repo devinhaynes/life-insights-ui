@@ -1,9 +1,21 @@
+<script>
+    import Auth from './Auth.svelte';
+</script>
+
 <div class="Landing">
-    <h1>Welcome</h1>
+    <div class="Landing__wrapper">
+        <Auth />
+    </div>
 </div>
 
 <style>
     .Landing {
         margin-top: 3rem;
+        margin-inline: 1rem;
+    }
+
+    .Landing__wrapper {
+        display: grid;
+        place-content: center;
     }
 </style>

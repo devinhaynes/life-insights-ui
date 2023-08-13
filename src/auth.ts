@@ -1,4 +1,5 @@
 import { firebase } from "./firebase";
+
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth as AuthStore } from "./stores/auth";
 import { navigate } from "svelte-routing";
@@ -37,4 +38,7 @@ export const signIn = () =>
       const credential = GoogleAuthProvider.credentialFromError(error);
     });
 
-export const signOut = () => AuthStore.set(null);
+export const signOut = () => {
+  AuthStore.set(null);
+  navigate("/");
+};
