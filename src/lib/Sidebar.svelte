@@ -3,11 +3,42 @@
 </script>
 
 <div class="Sidebar">
-    <i class="fa-solid fa-house" />
-    <i class="fa-solid fa-dollar-sign" />
-    <i class="fa-solid fa-spa" />
-    <i class="fa-solid fa-person-running" />
-    <i class="fa-solid fa-people-group" />
+    <div>
+        <!-- Finances -->
+        <i class="fa-solid fa-dollar-sign" />
+    </div>
+    <div>
+        <!-- Spriritual -->
+        <i class="fa-solid fa-spa" />
+    </div>
+    <div>
+        <!-- Fitness -->
+        <i class="fa-solid fa-person-running" />
+    </div>
+    <div>
+        <!-- Relationships -->
+        <i class="fa-solid fa-people-group" />
+    </div>
+    <div>
+        <!-- Career -->
+        <i class="fa-solid fa-briefcase" />
+    </div>
+    <div>
+        <!-- Romance -->
+        <i class="fa-solid fa-heart" />
+    </div>
+    <div>
+        <!-- Personal Development -->
+        <i class="fa-solid fa-trophy" />
+    </div>
+    <div>
+        <!-- Fun & Recreation -->
+        <i class="fa-solid fa-umbrella-beach" />
+    </div>
+    
+    
+    
+    
 </div>
 
 <style>

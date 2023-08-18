@@ -16,10 +16,6 @@
     let secondaryTwo;
 
 	onMount(async () => {
-        if(!$auth) {
-            navigate("/");
-        }
-
         const featuredCtx = featured.getContext('2d');
         const secondaryOneCtx = secondaryOne.getContext('2d');
         const secondaryTwoCtx = secondaryTwo.getContext('2d');

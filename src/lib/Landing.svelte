@@ -4,7 +4,7 @@
 
 <div class="Landing">
     <div class="Landing__wrapper">
-        <Auth />
+        <!-- <Auth /> -->
     </div>
 </div>
 

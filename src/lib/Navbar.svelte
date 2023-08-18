@@ -101,9 +101,15 @@
             align-items: flex-end;
         }
 
+        & li {
+            width: 100%;
+        }
+
         & button {
-            background-color: var(--primary);
-            color: white;
+            border-bottom: 1px solid var(--light-gray);
+            border-radius: 0;
+            width: 100%;
+            text-align: right;
         }
     }
 
