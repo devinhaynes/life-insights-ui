@@ -32,13 +32,6 @@
 <div id="Dashboard">
     <Sidebar />
     <div class="content">
-        <div class="top">
-            <div class="greeting">
-                {#if $auth}
-                    <h1>Dashboard</h1>
-                {/if}
-            </div>
-        </div>
         <div class="data">
             <div class="card featured">
                 <canvas bind:this={featured} ></canvas>
@@ -69,7 +62,7 @@
     }
 
     .content {
-        padding-bottom: 3rem;
+        padding-block: 3rem;
         display: flex;
         flex-direction: column;
         align-items: center;
